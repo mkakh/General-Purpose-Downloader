@@ -13,7 +13,7 @@ TARGET_SITE="$2"
 SAVEPATH="$PWD"
 
 HTML=$(curl $TARGET_SITE 2>/dev/null)
-URLS=$(echo $HTML | grep -Eo "[^\"\' ]+\.${EXTENSION}")
+URLS=$(echo $HTML | grep -Eo "[^\"\' ]+?\.${EXTENSION}/?")
 TARGET_FILES=""
 for URL in $URLS; do
     if [[ "$URL" =~ ^(http|https).+ ]]; then
